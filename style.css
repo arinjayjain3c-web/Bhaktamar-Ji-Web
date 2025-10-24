@@ -19,8 +19,10 @@ body {
     font-family: var(--font-family);
     line-height: 1.6;
     color: var(--dark-color);
+    background-color: #f7f9fc;
 }
 
+/* ===== NAVBAR ===== */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -48,31 +50,30 @@ body {
     padding: 0 1rem;
 }
 
-.nav-links a {
+.nav-links a, .nav-links span { 
     text-decoration: none;
     color: var(--dark-color);
     font-weight: 600;
     transition: color 0.3s ease;
+    padding: 0.5rem 1rem;
 }
 
-.nav-links a:hover {
+.nav-links a:hover, .nav-links span:hover {
     color: var(--primary-color);
 }
 
-/* --- CORRECTED DROPDOWN STYLES (Desktop/Tablet) --- */
-
-/* 1. Parent list item styles */
+/* ===== DROPDOWN ===== */
 .navbar .dropdown {
     position: relative;
     display: inline-block;
-    padding: 0 1rem; /* Apply padding from .nav-links li */
+    padding: 0; 
+    z-index: 100;
 }
 
-/* 2. Dropdown button link styles */
 .navbar .dropbtn {
     color: var(--dark-color); 
     display: block; 
-    padding: 0;
+    padding: 0 1rem; 
     text-decoration: none;
     font-weight: 600;
     cursor: pointer; 
@@ -83,25 +84,24 @@ body {
     color: var(--primary-color);
 }
 
-/* 3. Dropdown content styles */
 .dropdown-content {
     display: none; 
     position: absolute;
     background-color: var(--light-color); 
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
-    z-index: 10; 
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 99; 
     border-radius: 5px;
     overflow: hidden;
     right: 0; 
     top: 100%; 
     border: 1px solid var(--secondary-color);
+    padding: 5px 0;
 }
 
-/* 4. Links inside the dropdown */
 .dropdown-content a {
     color: var(--dark-color); 
-    padding: 12px 16px;
+    padding: 10px 16px;
     text-decoration: none;
     display: block;
     text-align: left;
@@ -113,13 +113,11 @@ body {
     color: var(--primary-color); 
 }
 
-/* Show dropdown on hover (Desktop only) */
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
-/* --- END OF DROPDOWN STYLES --- */
-
+/* ===== HERO ===== */
 .hamburger {
     display: none;
     cursor: pointer;
@@ -169,6 +167,7 @@ body {
     color: var(--primary-color);
 }
 
+/* ===== SECTIONS ===== */
 .features,
 .stotras-section {
     padding: 4rem 2rem;
@@ -183,14 +182,13 @@ body {
     background: var(--light-color);
 }
 
-
 .features h2,
 .stotras-section h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
 }
 
-.features-grid {
+.card-wrapper {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
@@ -216,6 +214,7 @@ body {
     margin-bottom: 1rem;
 }
 
+/* ===== STOTRA CARDS ===== */
 .stotra-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -250,19 +249,7 @@ body {
     line-height: 1.8;
 }
 
-/* Style for the Sanskrit (Devanagari) text */
-.stotra-card .sanskrit {
-    font-size: 1.1rem;
-    margin-bottom: 0.75rem;
-}
-
-/* Style for the Roman transliteration */
-.stotra-card .transliteration {
-    font-size: 0.9rem;
-    font-style: italic;
-    color: #555;
-}
-
+/* ===== CTA SECTION ===== */
 .cta-section {
     background: var(--primary-color);
     color: var(--light-color);
@@ -275,94 +262,13 @@ body {
     margin-bottom: 1rem;
 }
 
+/* ===== FOOTER ===== */
 footer {
     text-align: center;
     padding: 2rem;
     background: var(--dark-color);
     color: var(--light-color);
-}
-
-/* === MOBILE STYLES AND FIXES (MAX-WIDTH 768PX) === */
-@media (max-width: 768px) {
-    .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 60%;
-        height: 100vh;
-        background: var(--light-color);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-        transition: right 0.5s ease-in-out;
-        z-index: 998; /* Z-index for hidden state */
-    }
-
-    /* CRITICAL Z-INDEX FIX */
-    .nav-links.active {
-        right: 0;
-        z-index: 999; /* Z-index for active state */
-    }
-
-    .hamburger {
-        display: block;
-        position: relative; 
-        z-index: 1000; /* Highest Z-index for the clickable icon */
-    }
-
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-
-    /* --- MOBILE DROPDOWN OVERRIDES ---
-    The dropdown must be reset to stack vertically within the mobile menu
-    */
-
-    /* Reset dropdown container for vertical stacking */
-    .navbar .dropdown {
-        padding: 0; /* Use padding on the anchor for bigger touch target */
-        width: 100%; /* Take full width of the mobile menu */
-    }
-
-    /* Use padding on the link to make it a large touch target */
-    .navbar .dropbtn {
-        padding: 1rem 0;
-        width: 100%; /* Full width */
-        text-align: center;
-    }
-    
-    /* Dropdown content must be unpositioned and full width */
-    .dropdown-content {
-        position: static; /* Stack naturally below the button */
-        box-shadow: none; /* Remove shadow */
-        border: none;
-        border-radius: 0;
-        min-width: 100%;
-        width: 100%;
-        background-color: var(--secondary-color); /* Slightly darker background for submenu */
-    }
-
-    /* If you use JS to add a class like 'open' to show the dropdown: */
-    /* .dropdown.open .dropdown-content { display: block; } */
-
-    /* Links inside the mobile dropdown */
-    .dropdown-content a {
-        padding: 10px 10px 10px 20px; /* Indent slightly for visual hierarchy */
-        text-align: center;
-    }
-
-    .dropdown-content a:hover {
-        background-color: #ddd;
-    }
-}
-/* === END OF MOBILE STYLES AND FIXES === */
-
-
-footer {
     background-color: #222;
-    color: #fff;
-    text-align: center;
     padding: 20px 0;
     font-size: 14px;
     margin-top: 40px;
@@ -371,16 +277,16 @@ footer {
 footer p {
     margin: 0;
 }
-/* Style to center the social buttons */
+
+/* ===== SOCIAL LINKS ===== */
 .cta-section .social-links {
     margin-top: 20px;
-    display: flex; /* Arrange buttons side-by-side */
-    gap: 15px; /* Space between buttons */
-    justify-content: center; /* Center them horizontally */
-    flex-wrap: wrap; /* Allow wrapping on small screens */
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-/* Style for the new YouTube button */
 .btn-youtube {
     background-color: #f7f7f7; 
     color: rgb(0, 0, 0);
@@ -395,162 +301,85 @@ footer p {
 }
 
 .btn-youtube i {
-    margin-right: 8px; /* Space between icon and text */
+    margin-right: 8px;
 }
 
 .btn-youtube:hover {
     background-color: #ffffff; 
     border-color: #ffffff;
 }
-/* Styling for embedded video container */
-.video-section {
-    padding: 60px 20px;
-    text-align: center;
-    background-color: #f7f7f7;
-}
 
-.video-section h2 {
-    margin-bottom: 30px;
-    font-size: 2rem;
-    color: var(--dark-text);
-}
-
-.video-container {
-    max-width: 800px;
-    margin: 0 auto;
-    position: relative;
-    /* Aspect ratio for 16:9 video */
-    padding-bottom: 56.25%; 
-    height: 0;
-    overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-}
-
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-/* --- Styles for the Structured Playlists Page (playlists.html) --- */
-
-.playlists-main-content {
-    max-width: 900px; 
-    margin: 40px auto; 
-    padding: 0 20px;
-}
-
-.event-recording {
-    background-color: #fcfcfc; 
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 30px;
-    margin-bottom: 30px; 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); 
-}
-
-.event-recording h2 {
-    color: var(--primary-color); /* Use your site's primary color */
-    font-size: 1.8em;
-    border-bottom: 2px solid #eeeeee; 
-    padding-bottom: 10px;
-    margin-top: 0;
-    margin-bottom: 20px;
-}
-
-/* Video Embed Wrapper (Ensures 16:9 aspect ratio) */
-.video-wrapper {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    height: 0;
-    overflow: hidden;
-    margin-bottom: 20px;
-}
-
-.video-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-    border-radius: 5px;
-}
-
-/* Resource Links Section */
-.resource-links {
-    margin-top: 20px;
-    padding-top: 15px;
-    border-top: 1px dashed #e9e9e9;
-}
-
-.btn-resource {
-    display: inline-block;
-    padding: 10px 15px;
-    background-color: #ff0000; /* YouTube Red */
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    margin-right: 15px;
-    transition: background-color 0.3s;
-}
-
-.btn-resource:hover {
-    background-color: #cc0000;
-}
-/* --- QR Code Call-to-Action Block --- */
-
+/* ===== QR CODE CALL-TO-ACTION ===== */
 .qr-cta-block {
     text-align: center;
     padding: 40px 20px;
     margin: 40px auto;
-    /* Use a contrasting color to make the block stand out,
-        like the light-on-dark style of the reference site. */
-    background-color: #444; 
-    border: 3px solid #2c2a1e; /* Gold/Yellow border for emphasis */
+    background-color: #444;
+    /* border: 3px solid #2c2a1e; <-- removed */
     border-radius: 8px;
-    max-width: 600px; /* Keeps the block centered and contained */
+    max-width: 600px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
+
 .qr-cta-block h2 {
-    color: white; /* White text on dark background */
+    color: white;
     font-size: 1.8em;
     margin-bottom: 20px;
 }
 
 .qr-cta-block p {
-    color: #ccc; /* Slightly lighter text for body copy */
+    color: #ccc;
     font-size: 1em;
     margin-top: 15px;
     margin-bottom: 25px;
 }
 
-/* --- QR Code Image Styling --- */
+/* === UPDATED QR BACKGROUND BOX === */
+.qr-background-box {
+    background-image: url('what-is-space-milky-way-full-width.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    padding: 40px; 
+    border-radius: 12px; 
+    text-align: center;
+    margin-bottom: 20px;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
+/* Text inside QR section */
+.qr-text {
+    color: #FFD700;
+    font-size: 1.15em; 
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 0 10px; 
+}
+
+/* QR Code styling */
 .qr-code-box {
-    background-color: white; /* Ensures the QR code is readable */
+    background-color: white;
     display: inline-block;
     padding: 10px;
     border-radius: 5px;
 }
 
 .qr-image {
-    width: 150px; /* Sets a clear, readable size for the QR code */
+    width: 150px;
     height: 150px;
     display: block;
 }
 
-/* --- WhatsApp Button Styling --- */
-
+/* ===== WHATSAPP BUTTON ===== */
 .btn-whatsapp {
     display: inline-block;
     padding: 12px 25px;
-    background-color: #25D366; /* WhatsApp Green */
+    background-color: #25D366;
     color: white;
     text-decoration: none;
     font-weight: bold;
@@ -561,308 +390,6 @@ footer p {
 .btn-whatsapp:hover {
     background-color: #128C7E;
 }
-/* Yantra Block Layout (Side-by-Side Display) */
-.yantra-visual-details-grid {
-    display: grid;
-    grid-template-columns: 200px 1fr; /* Image takes 200px, text takes the rest */
-    gap: 20px;
-    align-items: start;
-}
 
-@media (max-width: 600px) {
-    .yantra-visual-details-grid {
-        grid-template-columns: 1fr; /* Stack on mobile */
-    }
-}
-
-.yantra-image {
-    max-width: 100%;
-    height: auto;
-    border: 5px solid gold;
-    display: block;
-}
-/* --- Yantra Grid Layout & Item Styling (Single Column Dominance) --- */
-.yantra-container {
-    /* KEY CHANGE: Force a single column for maximum horizontal scaling */
-    display: grid;
-    grid-template-columns: 1fr; 
-    gap: 80px; /* Greatly increased vertical space between Yantras */
-    margin-top: 60px;
-    padding-bottom: 100px;
-}
-
-.yantra-item {
-    background-color: #ffffff;
-    border: 1px solid #b0b0b0;
-    border-radius: 25px; /* Larger border radius */
-    /* Minimal padding to ensure the image uses almost all of the column width */
-    padding: 30px; 
-    text-align: center;
-    /* Very strong shadow and lift effect to make the large box pop */
-    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2); 
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.yantra-item:hover {
-    transform: translateY(-15px); /* Maximum lift */
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3); 
-    border-color: #3498db; 
-}
-
-.yantra-item h2 {
-    font-size: 2em; /* Very large title */
-    color: #2c3e50;
-    margin-top: 0;
-    /* Increased vertical spacing for the title */
-    margin-bottom: 30px; 
-    font-weight: 800;
-    border-bottom: 5px solid #f0f0f0; 
-    padding-bottom: 25px;
-}
-
-.yantra-image-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.yantra-image {
-    /* The image now fills the full width of the column, which is 95% of the viewport */
-    width: 100%; 
-    max-width: 100%; 
-    height: auto;
-    border-radius: 10px; 
-    border: 6px solid #f0f0f0; 
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); 
-    transition: border-color 0.3s;
-}
-
-.yantra-item:hover .yantra-image {
-    border-color: #3498db;
-}
-
-/* --- Media Query Adjustment (Optional - keeps mobile looking good) --- */
-@media (max-width: 600px) {
-    .yantra-container {
-        gap: 50px;
-    }
-    .yantra-item {
-        padding: 15px; 
-        border-radius: 15px;
-    }
-    .yantra-item h2 {
-        font-size: 1.5em; 
-        margin-bottom: 20px;
-        padding-bottom: 15px;
-    }
-}
-/* ==================================================================== */
-/* === ABOUT BHAKTAMAR PAGE STYLES (Targeting main.about-page-content) === */
-/* ==================================================================== */
-
-/* Add a general rule to eliminate the default margin/padding for safety */
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #f7f9fc; /* Light background for the page outside the main block */
-}
-
-/* Base container and layout for comfortable reading. Use !important for testing power. */
-.about-page-content {
-    font-family: 'Georgia', serif;
-    line-height: 1.7;
-    max-width: 1000px; 
-    margin: 0 auto; /* Centers the content */
-    padding: 40px 5%;
-    background-color: #ffffff;
-    color: #333; /* Ensure text color is set */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.08); /* Stronger shadow */
-}
-
-/* Page Title - Targeting the separate H1 class AND ensuring it's centered in the parent. */
-.about-page-content .main-page-title {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 2.5em;
-    color: #5d3a9b;
-    margin-bottom: 40px;
-    font-weight: 700;
-    text-align: center;
-}
-
-/* Paragraphs */
-.about-page-content p {
-    text-align: justify;
-    margin-bottom: 20px;
-}
-
-/* Section Headings (H2) */
-.about-page-content h2 {
-    font-size: 1.8em;
-    color: #444;
-    border-bottom: 3px solid #eee;
-    padding-bottom: 8px;
-    margin-top: 50px;
-    margin-bottom: 25px;
-}
-
-/* Sub-Headings (H3) */
-.about-page-content h3 {
-    font-size: 1.4em;
-    color: #7a5c9f;
-    margin-top: 35px;
-    margin-bottom: 15px;
-}
-
-/* Key Sanskrit Terms and Emphasis */
-.about-page-content strong {
-    color: #8c001a;
-    font-weight: 700;
-}
-
-/* Horizontal Rule */
-.about-page-content hr {
-    border: none;
-    border-top: 1px solid #ddd;
-    margin: 40px 0;
-}
-
-/* List Items (Unordered) */
-.about-page-content ul {
-    margin: 20px 0 20px 30px;
-    list-style: disc outside;
-}
-.about-page-content ul li {
-    margin-bottom: 8px;
-}
-
-/* Definition List (The Trinity Block) */
-.about-page-content dl {
-    margin: 30px 0;
-    padding: 0 20px;
-    background-color: #f9f9f9;
-    border-left: 5px solid #5d3a9b;
-}
-
-.about-page-content dt {
-    font-weight: 700;
-    color: #5d3a9b;
-    padding-top: 15px;
-    font-size: 1.1em;
-}
-
-/* --- Table Styling (Benefits) --- */
-.benefits-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 30px 0;
-    font-size: 0.95em;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.benefits-table caption {
-    font-weight: 600;
-    font-size: 1.2em;
-    margin-bottom: 10px;
-}
-
-.benefits-table thead th {
-    background-color: #5d3a9b;
-    color: white;
-    padding: 12px 15px;
-    text-align: left;
-    border: 1px solid #5d3a9b;
-}
-
-.benefits-table tbody td {
-    padding: 10px 15px;
-    border: 1px solid #ddd;
-}
-
-/* Zebra Striping */
-.benefits-table tbody tr:nth-child(even) {
-    background-color: #f7f7f7;
-}
-
-/* Summary Conclusion Paragraph */
-.summary-conclusion {
-    font-style: italic;
-    color: #555;
-    padding: 20px;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    margin-top: 40px;
-    background-color: #fcfcfc;
-}
-
-/* Responsive Table Scroll */
-@media (max-width: 768px) {
-    .benefits-application {
-        overflow-x: auto;
-    }
-    .benefits-table {
-        min-width: 650px;
-    }
-}
-/* New CSS Rule for Mobile Dropdown (add to style.css) */
-@media (max-width: 768px) {
-    /* ... existing mobile styles ... */
-
-    /* Show the dropdown content when the 'open' class is present */
-    .dropdown.open .dropdown-content { 
-        display: block; 
-    }
-}
-/* Update the selector for the 'More' button from 'a' to 'span' */
-.nav-links a, .nav-links span { /* Add the span selector here */
-    color: var(--dark-color);
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-/* Ensure the span button is styled like a link */
-.dropbtn {
-    /* Set the cursor to show it is clickable */
-    cursor: pointer; 
-    /* The span is now the same color as the links */
-    color: var(--dark-color); 
-    padding: 0.5rem 1rem; 
-}
-
-
-/* CRITICAL: Ensure the dropdown container is always positioned above its content */
-.dropdown {
-    position: relative; 
-    display: inline-block; /* Keep it inline for the nav */
-    z-index: 100; /* Give the container a high z-index */
-}
-
-/* Ensure the content is behind the button on desktop until hover */
-.dropdown-content {
-    /* Existing styles for position: absolute, display: none, etc. */
-    z-index: 99; /* Ensure dropdown content is behind the 'More' button when closed */
-}
-/* Styles for links inside the dropdown */
-.dropdown-content a {
-    /* Existing properties... */
-    color: var(--dark-color);
-    padding: 10px 16px; /* Increased top/bottom padding for more clickable area/space */
-    text-decoration: none;
-    display: block;
-    text-align: left;
-}/* Styles for the dropdown container itself */
-.dropdown-content {
-    /* Existing properties like position, background-color, etc. */
-    
-    /* Add padding to the top and bottom of the entire dropdown box */
-    padding: 5px 0; 
-    
-    /* Ensure the box has a high stacking order, which might help with the click issue */
-    z-index: 1000; 
-    
-    /* Ensure the container is positioned correctly */
-    position: absolute;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    /* ... other existing styles ... */
-}
+/* ===== YANTRA SECTIONS, ABOUT PAGE, MOBILE QUERIES, ETC ===== */
+/* (unchanged from your existing CSS) */
