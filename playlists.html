@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore the official YouTube Playlists from Sarita Paridhi Bhaktamar Team, featuring full Bhaktamar Stotra sessions, learning modules, and event recordings."> 
+    <title>YouTube Playlists | Paridhi Jain</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">Paridhi Jain</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li> 
+                <li><a href="index.html#cta">Community</a></li>
+                <li><a href="Contactus.html">Contact Us</a></li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">More ▼</a> 
+                    <div class="dropdown-content">
+                        <a href="stotra.html">Stotras</a>
+                        <a href="playlists.html">YouTube Playlists</a> 
+                    </div>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="playlists-main-content">
+        
+        <h1 style="text-align: center; margin-bottom: 40px; color: #444;">YouTube Course & Event Recordings</h1>
+
+        <div class="event-recording">
+            <h2>Full Brahmi Lipi Course</h2>
+            <p><strong>Team:</strong> Sarita Paridhi Bhaktamar Team</p>
+            <p>This unique course connects the sacred Bhaktamar Stotra with the Brahmi Lipi, the ancient script revered in Jainism as having been introduced by the First Tirthankara, Lord Adinath, and taught to his daughter, Brahmi.</p>
+            
+            <div class="video-wrapper">
+                <iframe 
+                    src="https://www.youtube.com/embed/videoseries?list=PLirpb1u8BPksEWJGU9WWcVXVx4gnoZsDv" 
+                    title="Bhaktamar Stotra Full Learning Playlist" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <div class="resource-links">
+                <a href="https://youtube.com/playlist?list=PLirpb1u8BPksEWJGU9WWcVXVx4gnoZsDv" target="_blank" rel="noopener noreferrer" class="btn-resource">
+                    <i class="fab fa-youtube"></i> View All Sessions on YouTube
+                </a>
+            </div>
+        </div>
+        <div class="event-recording">
+            <h2>Bhaktamar Stotra & Tarot Card Readings: Spiritual Guidance Series</h2>
+            <p><strong>Topic:</strong> Practical spiritual healing and balancing practices.</p>
+            <p>This unique playlist explores the mystical intersection of the sacred Bhaktamar Stotra and the art of Tarot Card Reading.</p> 
+            
+            <div class="video-wrapper">
+                 <iframe 
+                     src="https://www.youtube.com/embed/videoseries?list=PLirpb1u8BPktTLDFb58OYYVql4GgJzROk" 
+                     title="Guided Meditation Playlist" 
+                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                     allowfullscreen>
+                 </iframe>
+            </div>
+
+            <div class="resource-links">
+                <a href="https://www.youtube.com/playlist?list=PLirpb1u8BPktTLDFb58OYYVql4GgJzROk" target="_blank" rel="noopener noreferrer" class="btn-resource">
+                    <i class="fab fa-youtube"></i> View All Courses on Youtube
+                </a>
+            </div>
+        </div>
+        </main>
+
+    <div id="footer-container"></div>
+    <template id="footer-template">
+        <footer>
+            <p>&copy; 2025 Paridhi Jain. All Rights Reserved.</p>
+        </footer>
+    </template>
+    
+    <script>
+        // Script to insert the footer template
+        document.addEventListener("DOMContentLoaded", function () {
+            const template = document.getElementById("footer-template");
+            const container = document.getElementById("footer-container");
+            if (template && container) {
+                const footerClone = template.content.cloneNode(true);
+                container.appendChild(footerClone);
+            }
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

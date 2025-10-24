@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description"
+        content="Discover all 48 Bhaktamar Stotras in Sanskrit with English transliteration — a spiritual guide to devotion, clarity, and inner peace.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paridhi Jain | Spiritual Guide</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">Paridhi Jain</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#cta">Community</a></li>
+                <li><a href="Contactus.html">Contact Us</a></li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">More ▼</a>
+                    <div class="dropdown-content">
+                        <a href="stotra.html">Stotras</a>
+                        <a href="playlists.html">YouTube Playlists</a>
+                        <a href="yantras.html">Yantras of Bhaktamar</a>
+                        <a href="About.html">About Bhaktamar Stotra</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="qr-cta-block">
+    <div class="qr-content-wrapper">
+        <h2>Join Our Community & Get Instant Updates!</h2>
+        
+        <div class="qr-code-box">
+            <img 
+                src="qrcode_266278001_c9396104ae8d2977dc4f99b9375ab3a7.png" 
+                alt="QR Code to Join WhatsApp Group" 
+                class="qr-image"
+            >
+        </div>
+        
+        <p>Scan the code above to **instantly join our Bhaktamar WhatsApp Group** and be notified of all upcoming webinars, new learning sessions, and live events.</p>
+        
+        <a href="https://chat.whatsapp.com/DGOHdih565IE7L78mYxDAZ?mode=wwt" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+            Can't Scan? Click Here to Join!
+        </a>
+    </div>
+</section>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Guiding Your Spiritual Journey</h1>
+                <p>Discover timeless wisdom and healing practices to bring balance and peace to your life.</p>
+                <a href="#cta" class="btn">Get in Touch</a>
+            </div>
+        </section>
+
+        <section id="webinars" class="features">
+            <div class="card-wrapper">
+                <div class="card">
+                    <h3>Webinars & Events</h3>
+                    <p>Join live sessions and workshops on spiritual healing, meditation, and personal growth by Sarita
+                        Paridhi Chennai Team.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-book-open card-icon"></i>
+                    <h3>Courses for free</h3>
+                    <p>We conduct so many free live zoom classes.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-hand-holding-heart card-icon"></i>
+                    <h3>One-to-One Sessions</h3>
+                    <p>Book a personal consultation for guidance tailored to your unique spiritual path.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="cta" class="cta-section">
+            <h2>Join a Community of Seekers</h2>
+            <p>Join our official whatsapp group and YouTube channel for live updates and more.</p>
+            <div class="social-links">
+                <a href="https://chat.whatsapp.com/DGOHdih565IE7L78mYxDAZ?mode=wwt" target="_blank"
+                    rel="noopener noreferrer" class="btn btn-light">Join WhatsApp</a>
+                <a href="https://www.youtube.com/c/SaritaParidhiBhaktamarTeam1369" target="_blank"
+                    rel="noopener noreferrer" class="btn btn-youtube">
+                    <i class="fab fa-youtube"></i> Watch on YouTube
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <template id="footer-template">
+        <footer>
+            <p>&copy; 2025 Paridhi Jain. All Rights Reserved.</p>
+        </footer>
+    </template>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const template = document.getElementById("footer-template");
+            const container = document.getElementById("footer-container");
+            if (template && container) {
+                const footerClone = template.content.cloneNode(true);
+                container.appendChild(footerClone);
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+footer {
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 14px;
+  margin-top: 40px;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* ========================
+   Go Back Link Styles
+   ======================== */
+.go-back-link {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  /* Spacing below the link */
+  color: #4a5568;
+  /* Mid-gray text color */
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: #f7fafc;
+  /* Light gray background */
+  border: 1px solid #e2e8f0;
+}
+
+.go-back-link:hover {
+  color: #1a202c;
+  /* Darker text on hover */
+  background-color: #edf2f7;
+  border-color: #cbd5e0;
+  transform: translateY(-2px);
+  /* Subtle lift effect on hover */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Optional: Add some top padding to your main section for better spacing */
+.stotras-section,
+.work-section
+
+/* Add your other section classes here */
+  {
+  padding-top: 40px;
+}
