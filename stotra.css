@@ -1,120 +1,45 @@
 /* ========================================
-    Root Variables (Define your main colors here)
-======================================== 
-*/
+    Root Variables (Colors & Theme)
+======================================== */
 :root {
-    /* Deep Purple for Spirituality/Wisdom */
-    --primary-color: #484dd0; 
-    /* A lighter shade of purple/lavender for subtle accents */
-    --secondary-color: #D8BFD8; 
-    /* Dark text for high readability */
-    --dark-text: #2c3e50; 
-    /* Light background for cards */
+    --primary-color: #484dd0;
+    --secondary-color: #D8BFD8;
+    --dark-text: #2c3e50;
     --light-bg: #ffffff;
-    /* Subtle hover color */
     --hover-bg: #f9f9ff;
 }
 
-
 /* ========================================
-    Stotra Grid Layout
-======================================== 
-*/
-.stotra-grid {
-    display: grid;
-    /* Adjusted minmax for better flow on mid-size screens */
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-    gap: 2rem; /* Increased gap for more space between cards */
-    max-width: 1200px;
-    margin: 40px auto; /* Added top margin for better spacing from content above */
-    text-align: left;
-}
-
-
-/* ========================================
-    Stotra Card Styles (Enhanced)
-======================================== 
-*/
-.stotra-card {
-    background: var(--light-bg);
-    /* Increased padding for a more spacious, premium look */
-    padding: 2rem; 
-    border: 1px solid #e0e0e0; /* Subtle, light border */
-    border-radius: 12px; /* Slightly rounder corners for a modern feel */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04); /* Subtle, elegant shadow */
-    /* Smoother, more professional transition on all properties */
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
-}
-
-.stotra-card:hover {
-    transform: translateY(-8px); /* A more noticeable lift on hover */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Deeper shadow on hover */
-    /* Highlight the card with the primary color on hover */
-    border-color: var(--primary-color); 
-}
-
-.stotra-card h3 {
-    font-size: 1.5rem; /* Larger and more prominent title */
-    color: var(--primary-color); 
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--secondary-color); /* Separator line below the title */
-    font-weight: 600; /* Medium-bold weight for titles */
-}
-
-/* Base text style (if used for descriptions) */
-.stotra-card p {
-    font-size: 1rem;
-    line-height: 1.8;
-    color: #555;
-}
-
-/* Style for the Sanskrit (Devanagari) text - HIGH READABILITY */
-.stotra-card .sanskrit {
-    font-family: 'Arial', sans-serif; /* Use a clean font for Devanagari */
-    font-size: 1.3rem; /* Significantly larger for max readability */
-    line-height: 2.0; /* Increased line-height for easier reading of dense text */
-    margin-bottom: 1.5rem;
-    font-weight: 400; 
-    color: var(--dark-text); /* Very dark text for contrast */
-}
-
-/* Style for the Roman transliteration - VISUALLY SEPARATED */
-.stotra-card .transliteration {
-    font-size: 1rem; 
-    font-style: normal; /* Removes italics for better on-screen reading */
-    color: #7f8c8d; /* Muted, softer gray color */
-    background-color: #f7f9fb; /* Light background to visually separate it */
-    padding: 10px 15px;
-    border-left: 4px solid var(--secondary-color); /* A subtle color bar */
-    border-radius: 0 4px 4px 0; /* Only right corners for the box */
-    display: block; /* Make it take up its own line */
-    margin-top: 1rem;
-}
-
-
-/* ========================================
-    Footer Styles
-======================================== 
-*/
-footer {
-    background-color: #1f1f1f; 
-    color: #dcdcdc; 
-    text-align: center;
-    padding: 30px 0; 
-    font-size: 15px; 
-    margin-top: 50px; 
-}
-
-footer p {
+    Base Style
+======================================== */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9ff;
+    color: var(--dark-text);
     margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    overflow-x: hidden;
 }
 
+/* ========================================
+    Section Layout
+======================================== */
+.stotras-section,
+.work-section {
+    padding: 60px 10%;
+    text-align: center;
+}
+
+.stotras-section h2 {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
 
 /* ========================================
-    Go Back Link Styles (Polished)
-======================================== 
-*/
+    Go Back Link
+======================================== */
 .go-back-link {
     display: inline-block;
     margin-bottom: 1.5rem;
@@ -123,7 +48,7 @@ footer p {
     font-weight: 600;
     transition: all 0.3s ease-in-out;
     padding: 10px 20px;
-    border-radius: 25px; /* Pill-shaped */
+    border-radius: 25px;
     background-color: #fff;
     border: 2px solid #e2e8f0;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
@@ -137,8 +62,150 @@ footer p {
     box-shadow: 0 6px 10px -2px rgba(0, 0, 0, 0.15);
 }
 
-/* Optional: Add some top padding to your main section for better spacing */
-.stotras-section,
-.work-section {
-    padding-top: 40px;
+/* ========================================
+    Stotra Grid Layout
+======================================== */
+.stotra-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 40px auto;
+    text-align: left;
+}
+
+/* ========================================
+    Stotra Cards
+======================================== */
+.stotra-card {
+    background: var(--light-bg);
+    padding: 2rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.stotra-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-color);
+}
+
+.stotra-card h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--secondary-color);
+    font-weight: 600;
+}
+
+/* Description (if used) */
+.stotra-card p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* ========================================
+    Sanskrit Text
+======================================== */
+.stotra-card .sanskrit {
+    font-family: 'Noto Serif Devanagari', 'Arial', sans-serif;
+    font-size: 1.3rem;
+    line-height: 2;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+    color: var(--dark-text);
+    text-align: center;
+    word-wrap: break-word;
+}
+
+/* ========================================
+    Transliteration
+======================================== */
+.stotra-card .transliteration {
+    font-size: 1rem;
+    color: #7f8c8d;
+    background-color: #f7f9fb;
+    padding: 10px 15px;
+    border-left: 4px solid var(--secondary-color);
+    border-radius: 0 4px 4px 0;
+    display: block;
+    margin-top: 1rem;
+    overflow-wrap: break-word;
+}
+
+/* ========================================
+    Footer
+======================================== */
+footer {
+    background-color: #1f1f1f;
+    color: #dcdcdc;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 15px;
+    margin-top: 50px;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* ========================================
+    RESPONSIVE FIXES
+======================================== */
+@media (max-width: 1024px) {
+    .stotras-section {
+        padding: 40px 5%;
+    }
+}
+
+@media (max-width: 768px) {
+    .stotra-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .stotra-card {
+        padding: 1.5rem;
+    }
+
+    .stotra-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .stotra-card .sanskrit {
+        font-size: 1.1rem;
+    }
+
+    .stotra-card .transliteration {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+
+    .stotras-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .go-back-link {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 0.95rem;
+    }
+
+    .stotra-card {
+        padding: 1rem;
+        border-radius: 10px;
+    }
+
+    .stotra-card h3 {
+        font-size: 1.1rem;
+    }
 }
